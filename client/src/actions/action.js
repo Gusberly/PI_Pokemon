@@ -15,6 +15,20 @@ export const getPokemon = () => {
   };
 };
 
+// export const getPokemon = () => {
+//   return function (dispatch) {
+//     axios
+//       .get("http://localhost:3001/pokemons")
+//       .then((pokemon) => {
+//         dispatch({
+//           type: "GET_POKEMONS",
+//           payload: pokemon.data,
+//         });
+//       })
+//       .catch((error) => console.log(error));
+//   };
+// };
+
 export const getPokemonId = (id) => {
   return async function (dispatch) {
     try {
