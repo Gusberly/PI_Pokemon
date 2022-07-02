@@ -1,31 +1,17 @@
 import axios from "axios";
 
-// export const getPokemon = () => {
-//   return async function (dispatch) {
-//     try {
-//       var pokemon = await axios.get("http://localhost:3001/pokemons");
-//       console.log(pokemon);
-//       return dispatch({
-//         type: "GET_POKEMONS",
-//         payload: pokemon.data,
-//       });
-//     } catch (error) {
-//       console.log("este es el error", error);
-//     }
-//   };
-// };
-
 export const getPokemon = () => {
-  return function (dispatch) {
-    axios
-      .get("http://localhost:3001/pokemons")
-      .then((pokemon) => {
-        dispatch({
-          type: "GET_POKEMONS",
-          payload: pokemon.data,
-        });
-      })
-      .catch((error) => console.log(error));
+  return async function (dispatch) {
+    try {
+      var pokemon = await axios.get("http://localhost:3001/pokemons");
+      console.log(pokemon);
+      return dispatch({
+        type: "GET_POKEMONS",
+        payload: pokemon.data,
+      });
+    } catch (error) {
+      console.log("este es el error", error);
+    }
   };
 };
 
